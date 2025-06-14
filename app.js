@@ -5,7 +5,7 @@ const searchBtn = document.querySelector(".search button");
 const weatherImg = document.querySelector(".weather-icon");
 
 async function weather(city) {
-    const url = `http://api.weatherapi.com/v1/current.json?key=${key}&q=${city}&aqi=no`;
+    const url = `https://api.weatherapi.com/v1/current.json?key=${key}&q=${city}&aqi=no`;
 
     try {
         const response = await fetch(url);
@@ -15,7 +15,7 @@ async function weather(city) {
         document.querySelector(".cityname").innerHTML = data.location.name;
         document.querySelector(".temp").innerHTML = Math.round(data.current.temp_c) + "°C";
         document.querySelector(".humid").innerHTML ="Humidity = "+ data.current.humidity + "%";
-        document.querySelector(".wind-speed").innerHTML = "wind-speed ="+data.current.wind_kph + " km/h";
+        document.querySelector(".wind-speed").innerHTML = "wind-speed ="+Math.round(data.current.wind_kph) + " km/h";
 
         const condition = data.current.condition.text.toLowerCase();
 
