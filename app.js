@@ -10,7 +10,7 @@ async function weather(city) {
     try {
         const response = await fetch(url);
         const data = await response.json();
-        console.log(data);
+        
 
         document.querySelector(".cityname").innerHTML = data.location.name;
         document.querySelector(".temp").innerHTML = Math.round(data.current.temp_c) + "°C";
